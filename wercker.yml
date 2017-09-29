@@ -34,7 +34,6 @@ regular-test:
     #    repository: quay.io/myuser/myapp
     #    tag: 1.0.0
 
-
 test-with-wercker-cache:
   steps:
     - script:
@@ -51,3 +50,4 @@ test-with-wercker-cache:
     #  - internal/docker-push:
     #    repository: quay.io/myuser/myapp
     #    tag: 1.0.0
+
