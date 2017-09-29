@@ -9,17 +9,45 @@ box:
   password: $DOCKER_PASSWORD
   tag: 8
 
+# this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
+  steps:
+    - script:
+      name: Build
+      code: |
+        echo "Hello Java Flight Recorder!"
+        echo "Choose the pipeline you want to run, e.g. 'test-timeout' and run it like this:"
+        echo "wercker build --pipeline=test-timeout"
+
+regular-test:
   steps:
     - script:
       name: Install pre-reqs
       code: |
         yum -y install tar gzip
-    - wercker/step-maven@0.1.6 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
-      goals: clean install
+    - wercker/step-maven@0.1.10 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
+      goals: clean compile
+    - wercker/step-maven@0.1.10:
+      goals: install
+    # you should push your image now :)
+    #  - internal/docker-push:
+    #    repository: quay.io/myuser/myapp
+    #    tag: 1.0.0
 
-dev:
+
+test-with-wercker-cache:
   steps:
-    - internal/shell
-    - wercker/step-maven@0.1.6 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
-      goals: clean install
+    - script:
+      name: Install pre-reqs
+      code: |
+        yum -y install tar gzip
+    - wercker/step-maven@0.1.10 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
+      goals: clean compile
+      cache_repo: true
+    - wercker/step-maven@0.1.10:
+      goals: install
+      cache_repo: true
+    # you should push your image now :)
+    #  - internal/docker-push:
+    #    repository: quay.io/myuser/myapp
+    #    tag: 1.0.0
