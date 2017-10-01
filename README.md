@@ -25,10 +25,10 @@ test-with-wercker-cache:
       name: Install pre-reqs
       code: |
         yum -y install tar gzip
-    - wercker/step-maven:
+    - java/maven:
       goals: clean compile
       cache_repo: true
-    - wercker/step-maven:
+    - java/maven:
       goals: install
       cache_repo: true
     # you should push your image now :)

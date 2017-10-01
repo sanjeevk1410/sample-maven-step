@@ -25,9 +25,9 @@ regular-test:
       name: Install pre-reqs
       code: |
         yum -y install tar gzip
-    - wercker/step-maven@0.1.10 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
+    - java/maven:
       goals: clean compile
-    - wercker/step-maven@0.1.10:
+    - java/maven:
       goals: install
     # you should push your image now :)
     #  - internal/docker-push:
@@ -40,10 +40,10 @@ test-with-wercker-cache:
       name: Install pre-reqs
       code: |
         yum -y install tar gzip
-    - wercker/step-maven@0.1.10 "https://github.com/markxnelson/step-maven/archive/master.tar.gz":
+    - java/maven:
       goals: clean compile
       cache_repo: true
-    - wercker/step-maven@0.1.10:
+    - java/maven:
       goals: install
       cache_repo: true
     # you should push your image now :)
