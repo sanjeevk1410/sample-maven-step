@@ -20,6 +20,7 @@ build:
         echo "wercker build --pipeline=test-timeout"
 
 regular-test:
+  box: centos
   steps:
     - script:
       name: Install pre-reqs
