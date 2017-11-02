@@ -7,12 +7,8 @@ box: maven
   # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
   steps:
-    - script:
-      name: Build
-      code: |
-        echo "Hello Java Flight Recorder!"
-        echo "Choose the pipeline you want to run, e.g. 'test-timeout' and run it like this:"
-        echo "wercker build --pipeline=test-timeout"
+    - java/maven:
+      goals: install
     - java/maven:
       goals: clean install
        
