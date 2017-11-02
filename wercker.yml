@@ -8,7 +8,6 @@ box:
   password: $DOCKERHUB_PASSWORD
   # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
-  box: maven
   steps:
     - script:
       name: Build
