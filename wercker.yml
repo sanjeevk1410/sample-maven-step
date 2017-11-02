@@ -9,7 +9,7 @@ box:
   password: $DOCKERHUB_PASSWORD
   tag: 8
   
-box: maven:3.5.2
+box: maven:3.3.9
 
 # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
