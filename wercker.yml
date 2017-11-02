@@ -17,7 +17,6 @@ build:
         
     
 regular-test:
-  box: centos
   steps:
     - script:
       name: Install pre-reqs
