@@ -4,7 +4,7 @@
 #
 
 box:
-  id: store/oracle/serverjre
+  id: openjdk
   username: $DOCKERHUB_USERNAME
   password: $DOCKERHUB_PASSWORD
   tag: 8
