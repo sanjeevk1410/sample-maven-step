@@ -16,8 +16,6 @@ build:
         echo "Choose the pipeline you want to run, e.g. 'test-timeout' and run it like this:"
         echo "wercker build --pipeline=test-timeout"
         
-install-jdk:
-  box: openjdk
     
 regular-test:
   box: centos
