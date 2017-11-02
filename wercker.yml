@@ -3,12 +3,10 @@
 # This is a sample that demonstrates how to use the Wercker Maven step.
 #
 box:
-  id: maven
-  username: $DOCKERHUB_USERNAME
-  password: $DOCKERHUB_PASSWORD
+  id: maven:latest
+  
   # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
-  box: martinseeler/oracle-server-jre
   steps:
     - script:
       name: Build
