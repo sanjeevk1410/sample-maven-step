@@ -4,6 +4,8 @@
 #
 box:
   id: martinseeler/oracle-server-jre
+  username: $DOCKERHUB_USERNAME
+  password: $DOCKERHUB_PASSWORD
   
   # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
