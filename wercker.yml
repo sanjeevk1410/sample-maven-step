@@ -5,7 +5,7 @@
   
   # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
-  box: maven:latest
+  box: centos
   steps:
     - script:
       name: Build
@@ -18,7 +18,7 @@ install-jdk:
   box: openjdk
     
 regular-test:
-  box: centos
+  box: maven:latest
   steps:
     - script:
       name: Install pre-reqs
@@ -34,7 +34,7 @@ regular-test:
     #    tag: 1.0.0
 
 test-with-wercker-cache:
-  box: centos
+  box: maven:latest
   steps:
     - script:
       name: Install pre-reqs
