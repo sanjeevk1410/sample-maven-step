@@ -14,6 +14,8 @@ box: maven:latest
 # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
   steps:
+    - java/maven:
+      goals: clean install
     - script:
       name: Build
       code: |
