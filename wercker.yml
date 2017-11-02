@@ -4,6 +4,7 @@
 #
  
 box: maven:3.2-jdk-7-onbuild
+box:openjdk
 
 # this pipeline does not really do anything, it just acts as a fan-out point to run all of test/demo pipelines
 build:
